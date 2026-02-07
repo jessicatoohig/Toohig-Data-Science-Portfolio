@@ -22,5 +22,6 @@ $ .venv/bin/activate
 $ uv sync
 ```
 **3. Start the app**
-$ streamlit run basic_streamlit_app/main.py
 ```bash
+$ streamlit run basic_streamlit_app/main.py
+```
