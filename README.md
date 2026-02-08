@@ -5,7 +5,7 @@ The purpose of my Data Science Portfolio is to have a central location to displa
 I plan to organize my Portfolio by creating folders for each project. Within each project folder, there will be associated folders where more grouping is necessary (visualizations, EDA, models, code), and other relevant files used in each project. 
 ## Current Project: Palmer's Penguins
 - Located in the basic_streamlit_app/ folder
-- ## How to Run the App on Your Machine
+## How to Run the App on Your Machine
 **1. Clone the repository** 
 ```bash
 $ git clone https://github.com/jessicatoohig/basic_streamlit_app.git
