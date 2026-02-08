@@ -10,7 +10,7 @@
 - Bar Graphs
 - Box Plots
 - Correlation Map
-## How to Run the App on Your Machine
+## How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
 ```bash
 $ git clone https://github.com/jessicatoohig/basic_streamlit_app.git
@@ -25,3 +25,4 @@ $ uv sync
 ```bash
 $ streamlit run basic_streamlit_app/main.py
 ```
+
