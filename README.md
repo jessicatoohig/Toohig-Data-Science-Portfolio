@@ -1,5 +1,5 @@
 # Toohig-Data-Science-Portfolio  
-## About the Semester Portfolio
+## About the Semester Portfolio 📄
 - Will include projects completed throughout my Introduction to Data Science class
 - 3 projects total (1 completed)
 - Utilizes exploratory and explanatory data analysis, different types of machine learning, and interactivity
