@@ -75,5 +75,7 @@ ax.set_yticklabels(corr.columns)
 fig.colorbar(im)
 st.pyplot(fig)
 
+st.write("Above is a correlation map based on the variables visualized in the boxplots.")
+
 # Conclusion
 st.subheader("Thank you for reading!")
