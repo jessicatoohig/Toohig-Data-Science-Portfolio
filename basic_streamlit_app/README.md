@@ -1,12 +1,12 @@
 # Project 1: Palmer's Penguins ❄️🐧
 ## About the App 📌
 - An exploratory analysis of the Palmer's Penguins Dataset
-- Code execueted in Python
-- Uses streamlit, pandas, and matplotlib
+- Code executed in Python
+- Uses Streamlit, pandas, and matplotlib
 - Analyzes both qualitative and quantitative data
 ## Graphs and Interactions Involved 📊
 - Buttons
-- Drop Down Select Boxes
+- Dropdown Select Boxes
 - Bar Graphs
 - Box Plots
 - Correlation Map
@@ -25,4 +25,5 @@ $ uv sync
 ```bash
 $ streamlit run basic_streamlit_app/main.py
 ```
+
 
