@@ -10,7 +10,7 @@ The purpose of my Data Science Portfolio is to have a central location to displa
 I plan to organize my portfolio by creating folders for each project. Within each project folder, there will be associated folders where more grouping is necessary (visualizations, EDA, models, code), and other relevant files used in each project. 
 ### Project 1: Palmer's Penguins ❄️🐧
 - Located in the basic_streamlit_app folder
-### How to Run the App on Your Machine 🧩
+#### How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
 ```bash
 $ git clone https://github.com/jessicatoohig/basic_streamlit_app.git
@@ -25,4 +25,12 @@ $ uv sync
 ```bash
 $ streamlit run basic_streamlit_app/main.py
 ```
-### Project 2: Mutant Moneyball 
+### Project 2: Mutant Moneyball 🛡️🦸
+
+#### Link to the Tidy Data Project repository 
+
+#### Description of the Mutant Moneyball Project
+
+#### Value of Mutant Moneyball Project to Portfolio 
+
+
