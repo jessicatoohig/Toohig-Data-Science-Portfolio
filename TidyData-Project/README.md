@@ -25,6 +25,9 @@ The Mutant Moneyball Dataset comes from Github, and is a CSV file, which can be 
 Below are visulizations used in the project. Visit the notebook here, link, to learn more about the code.
 
 <img src="Images/Boxplot.png" width="600">
+<<<<<<< HEAD
 <img src="Images/Histogram.png" width="600">
 <img src="Images/BarChart.png" width="600">
 <img src="Images/Heatmap.png" width="600">
+=======
+>>>>>>> db7db9313ab6acc883fd149573a87adb86ce3ce3
