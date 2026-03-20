@@ -34,6 +34,6 @@ $ streamlit run basic_streamlit_app/main.py
 link
 #### Description of the Mutant Moneyball Project
 The Mutant Moneyball project entails using the tidy data process to clean a dataset in order for transformatin and analysis. The tidy data principles are used to ensure data structure, readibiliity, and that the proper tools and aggregations can be used. Furthermore, after the tidy data process, different visualizations display key trends within the dataset, esepcially regarding patterns of value over time. 
-#### Value of Mutant Moneyball Project to Portfolio 
+#### Value of the Mutant Moneyball Project to my Portfolio 
 This project enhances the overall skill displayed in my portfolio because Project 1 only included exploratory analysis, as the dataset was already tidy. The untidiness of the Mutant Moneyball dataset shows my ability to notice errors, and displays my technical knowledge regarding turining raw-data into something more useful. The tidy data process is the foundation of working with data, as real-world data is almost never perfectly clean. In order to perform the higher level functions, like aggrgating the data for certain visualizations, cleaning must be done first. This project rounds out my portfolio by emphasizing the critical nature of the tidy data process, and how I will continue to use it in the future. 
 
