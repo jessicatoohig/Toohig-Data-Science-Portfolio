@@ -28,6 +28,5 @@ Below are visulizations used in the project. Visit the notebook here, link, to l
 <<<<<<< HEAD
 <img src="Images/Histogram.png" width="600">
 <img src="Images/BarChart.png" width="600">
-<img src="Images/Heatmap.png">
-=======
->>>>>>> db7db9313ab6acc883fd149573a87adb86ce3ce3
+<img src="Images/Heatmap.png" width="600">
+
