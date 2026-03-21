@@ -33,7 +33,7 @@ $ streamlit run basic_streamlit_app/main.py
 - Located in its own repository (linked below) and the TidyData-Project folder
 
 #### Link to the Tidy Data Project repository 🔗 
-[Tidy Data Project](https://github.com/jessicatoohig/TidyData-Project) 
+[Tidy Data Project](https://github.com/jessicatoohig/TidyData-Project/blob/main/README.md) 
 
 #### Description of the Mutant Moneyball Project 📝
 The Mutant Moneyball project entails using the tidy data process to clean a dataset in order for transformation and analysis. The tidy data principles are used to ensure data structure, readability, and that the proper tools and aggregations can be used. Furthermore, after the tidy data process, different visualizations display key trends within the dataset, especially regarding patterns of value over time. 
