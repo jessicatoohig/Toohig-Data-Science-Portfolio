@@ -1,4 +1,4 @@
-# Project Overview 
+# Project 2: Mutant Moneyball 🛡️🦸
 
 This project analyzes the Mutant Moneyball dataset, looking at observations regarding the value, as defined by U.S. dollars, of X-Men trading cards. Upon first download of the data, cleansing is necessary in order to tidy up the data frame, and get it ready for use and further exploration. In this project, the Member, or X-Men name, column was used as the unique identifier throughout. Based on this, the observations regarding each card were cleansed to represent four variables: Member, Decade, Source, and Value. Furthermore, the tidy data principles, that each variable forms a column, each observation forms a row, and each value is a cell, were carried out to fulfill the goal of exploratory analysis. Tidy data is important for data structure, the use of data analytics tools, and aggregation, so that we can find key insights about the value of these trading cards based on the four variables.
 
