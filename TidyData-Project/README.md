@@ -21,7 +21,7 @@ The Mutant Moneyball dataset comes from Github, and is a CSV file, which can be 
 [Tidy Data Cheat Sheet](https://vita.had.co.nz/papers/tidy-data.pdf)
 
 # Visuals used in the Project 
-Below are visualizations used in the project. Visit the notebook here, link, to learn more about the code.
+Below are visualizations used in the project.
 
 <img src="Images/Boxplot.png" width="600">
 <img src="Images/Histogram.png" width="600">
