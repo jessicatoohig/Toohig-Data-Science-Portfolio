@@ -72,4 +72,27 @@ if dataset == "Titanic Dataset":
 else:
     target = st.slectbox("Select a Target Column", df.columns)
 
+# Spearate the Predictor and Target Variables
+X = df.drop(columns = [target])
+y = df[target]
 
+# Convert to categorical variables 
+X = pd.get_dummies(X)
+
+# Train Test Split
+
+# Choose a test size
+test_size = st.sidebar.slide("Test Size", 0.1, 0.5, 0.2)
+
+X_train, X_test, y_train = train_test_split(X, y, test_size=test_size, random_state = 42)
+
+# Scale the Features
+scale = st.sidebar.checkbox("Apply Feature Scaling")
+    # If user checks box, code standardizes all numeric features
+    #Training data computes scaling prarmeters
+    # Test data is scaled using same parameters 
+if scale:
+    scaler = StandardScaler()
+    X_train = scalar.fit-transform(X_train)
+    X_test = scalar.transform(X_test)
+    
