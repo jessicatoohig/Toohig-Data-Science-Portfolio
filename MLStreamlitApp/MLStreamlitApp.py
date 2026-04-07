@@ -30,6 +30,7 @@ st.markdown("Upload a dataset, choose a model, tune it, and interactively explor
 st.sidebar.header("⚙️ Configuration")
 
 # Upload any Dataset
+st.subheader("Upload a Dataset")
 
 # Choose to use sample or upload own
 st.markdown("The Titanic Dataset can be used as a sample.")
@@ -54,11 +55,21 @@ if csv_file:
     try:
         df = pd.read_csv(csv_file)
         st.write("Here is a preview of your dataset:")
-        st.dataframe(df)
+        st.dataframe(df.head)
     except: 
         st.error("There was an error reading the file. Please upload a valid CSV file.")
         st.stop()
 else:
     st.info("Upload a dataset to begin.")
     st.stop()
+
+# Choosing a Target Column
+st.subheader("Choosing a Target Column")
+
+if dataset == "Titanic Dataset":
+    target = "Survived"
+    st.write("Target Column: Survived.")
+else:
+    target = st.slectbox("Select a Target Column", df.columns)
+
 
