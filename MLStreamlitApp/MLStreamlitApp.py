@@ -20,6 +20,17 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
+# Creating a Background Color Gradient
+st.markdown(
+    """
+    <style>
+        .stApp {
+            background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Title
 st.title(" 📊 Supervised Machine Learning Project")
@@ -95,4 +106,24 @@ if scale:
     scaler = StandardScaler()
     X_train = scalar.fit-transform(X_train)
     X_test = scalar.transform(X_test)
-    
+
+# Selecting a Supervised Learning Model 
+model = st.sidebar.selectbox("Choose a Model", ["Logistic Regression", "KNN", "Decision Tree", "Random Forest"])
+
+# Adjusting the Hyperparameters 
+if model == "Logistic Regression":
+    C = st.sidebar.slider("Regularization (C)", 0.01, 1.0, 10.0)
+    user_model = LogisticRegression(C=C, max_iter=1000)
+
+elif model == "KNN":
+    k = st,sidebar.slider("K", 1, 10, 5)
+    user_model = KNeighborsClassifier(n_neighbors=k)
+
+elif model == "Decision Tree":
+    depth = st.sidebar.slider("Max Depth", 1, 5, 20)
+    user_model = DecisionTreeClassifier(max_depth = depth)
+
+elif model == "Random Forest":
+    trees = st.sidebar.slider("Number of Trees", 10, 100, 200)
+    depth = st.sidebar.slider("Max Depth", 1, 5, 20)
+    user_model = RandomForestClassifier(n_estimators=trees, max_depth=depth)
