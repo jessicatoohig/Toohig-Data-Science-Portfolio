@@ -71,11 +71,24 @@ if dataset == "Upload Your Own":
 
     try:
         df = pd.read_csv(csv_file)
-        st.write("Here is a preview of your dataset:")
-        st.dataframe(df.head())
+       
     except: 
         st.error("There was an error reading the file. Please upload a valid CSV file.")
         st.stop()
+
+# Dataset Preview
+st.subheader("Here is a preview of your dataset:")
+st.dataframe(df.head())
+
+# Adding a Correlation Heatmap
+st.subheader("Correlation Heatmap")
+
+# Use just the numeric columns
+numeric_df = df.select_dtypes(include=np.number)
+
+fig_corr, ax_corr = plt.subplots()
+sns.heatmap(numeric_df.corr(), annot = True, cmap = "coolwarm", ax=ax_corr)
+st.pyplot(fig_corr)
 
 # Choosing a Target Column
 st.subheader("Choosing a Target Column")
@@ -92,6 +105,19 @@ y = df[target]
 
 # Convert to categorical variables 
 X = pd.get_dummies(X)
+
+# Fixing NaN issues
+mask = y.notna()
+X = X[mask]
+y = y[mask]
+
+# Fill missing values
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(strategy = "mean")
+X = imputer.fit_transform(X)
+
+# Convert to a Datafram (preserve feature names)
+X = pd.DataFrame(X, columns=pd.get_dummies(df.drop(columns=[target])).columns)
 
 # Train Test Split
 
@@ -110,72 +136,77 @@ if scale:
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
-# Selecting a Supervised Learning Model 
-model = st.sidebar.selectbox("Choose a Model", ["Logistic Regression", "KNN", "Decision Tree", "Random Forest"])
-
-# Adjusting the Hyperparameters 
-if model == "Logistic Regression":
-    C = st.sidebar.slider("Regularization (C)", 0.01, 10.0, 1.0)
-    user_model = LogisticRegression(C=C, max_iter=1000)
-
-elif model == "KNN":
-    k = st.sidebar.slider("K", 1, 10, 5)
-    user_model = KNeighborsClassifier(n_neighbors=k)
-
-elif model == "Decision Tree":
-    depth = st.sidebar.slider("Max Depth", 1, 20, 5)
-    user_model = DecisionTreeClassifier(max_depth = depth)
-
-elif model == "Random Forest":
-    trees = st.sidebar.slider("Number of Trees", 10, 200, 100)
-    depth = st.sidebar.slider("Max Depth", 1, 20, 5)
-    user_model = RandomForestClassifier(n_estimators=trees, max_depth=depth)
-
-# Training the model
+# Choosing a Model
 
 if st.button("Train Model"):
-    user_model.fit(X_train, y_train)
-    predictions = user_model.predict(X_test)
 
-    st.subheader("Model Performance")
+    model = st.sidebar.selectbox(
+        "Choose a Model",
+        ["Logistic Regression", "KNN", "Decision Tree", "Random Forest"]
+    )
 
-    # Accuracy
-    acc = accuracy_score(y_test, predictions)
-    st.metric("Accuracy", f"{acc:.2f}")
+    if model == "Logistic Regression":
+        C = st.sidebar.slider("Regularizatoin (C)", 0.01, 10.0, 1.0)
+        user_model = LogisticRegression(C=C, max_iter = 1000)
+    
+    elif model == "KNN":
+        k = st.sidebar.slider("K", 1, 10, 5)
+        user_model = KNeighborsClassifier(n_neighbors=k)
 
-    # Classification Report
-    st.subheader("Classification Report")
-    st.text(classification_report(y_test, predictions))
+    elif model == "Decision Tree":
+        depth = st.sidebar.slider("Max Depth", 1, 20, 5)
+        user_model = DecisionTreeClassifier(max_depth = depth)
 
-    st.subheader("Confusion Matrix")
-    st.text(confusion_matrix(y_test, predictions))
+    elif model == "Random Forest":
+        trees = st.sidebar.slider("Number of Trees", 10, 200, 100)
+        depth = st.sidebar.slider("Max Depth", 1, 20, 5)
+        user_model = RandomForestClassifier(n_estimators=trees, max_depth=depth)
 
-    cm = confusion_matrix(y_test, predictions)
+# Training the Model
+user_model.fit(X_train)
+predictions = user_model.predict(X_test)
 
-    fig, ax = plt.subplots()
-    sns.heatmap(cm, annot=True, fmt = 'd', ax=ax)
-    ax.set_xlabel("Predicted")
-    ax.set_ylabel("Actual")
-    st.pyplot(fig)
+# Model Performance 
+st.subheader("Model Performance")
 
-    # ROC Curve
-    if len(np.unique(y)) == 2:
-        st.subheader("ROC Curve")
-        y_probs = user_model.predict_proba(X_test)[:,1]
-        fpr, tpr, _ = roc_curve(y_test, y_probs)
-        roc_auc = auc(fpr,tpr)
+# Accuracy
+acc = accuracy_score(y_test, predictions)
+st.metric("Accuracy", f"{acc:.2f}")
 
-        fig2, ax2 = plt.subplots()
-        ax2.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}")
-        ax2.legend()
-        st.pyplot(fig2)
+# Classification Report
+st.subheader("Classification Report")
+st.text(classification_report(y_test, predictions))
 
-    # Feature Importance
-    if model in ["Decision Tree", "Random Forest"]:
-        st.subheader("Feature Importance")
-        importance = user_model.feature_importances_
-        feat_df = pd.DataFrame({
-            "Feature": X.columns,
-            "Importance": importance
-        }).sort_values(by="Importance", ascending = False)
-        st.dataframe(feat_df)
+#Confusion Matrix
+st.subheader("Confusion Matrix")
+st.text(confusion_matrix(y_test, predictions))
+
+cm = confusion_matrix(y_test, predictions)
+
+fig, ax = plt.subplots()
+sns.heatmap(cm, annot=True, fmt = 'd', ax=ax)
+ax.set_xlabel("Predicted")
+ax.set_ylabel("Actual")
+st.pyplot(fig)
+
+# ROC Curve
+if len(np.unique(y)) == 2:
+    st.subheader("ROC Curve")
+    y_probs = user_model.predict_proba(X_test)[:,1]
+    fpr, tpr, _ = roc_curve(y_test, y_probs)
+    roc_auc = auc(fpr,tpr)
+
+    fig2, ax2 = plt.subplots()
+    ax2.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}")
+    ax2.legend()
+    st.pyplot(fig2)
+
+# Feature Importance
+if model in ["Decision Tree", "Random Forest"]:
+    st.subheader("Feature Importance")
+    importance = user_model.feature_importances_
+    feat_df = pd.DataFrame({
+        "Feature": X.columns,
+        "Importance": importance
+    }).sort_values(by="Importance", ascending = False)
+    st.dataframe(feat_df)
