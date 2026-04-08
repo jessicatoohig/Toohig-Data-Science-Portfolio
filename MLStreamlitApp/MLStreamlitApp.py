@@ -86,7 +86,7 @@ if dataset == "Titanic Dataset":
 else:
     target = st.selectbox("Select a Target Column", df.columns)
 
-# Spearate the Predictor and Target Variables
+# Separate the Predictor and Target Variables
 X = df.drop(columns = [target])
 y = df[target]
 
@@ -102,9 +102,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, r
 
 # Scale the Features
 scale = st.sidebar.checkbox("Apply Feature Scaling")
-    # If user checks box, code standardizes all numeric features
-    #Training data computes scaling prarmeters
-    # Test data is scaled using same parameters 
+# If user checks box, code standardizes all numeric features
+#Training data computes scaling prarmeters
+# Test data is scaled using same parameters 
 if scale:
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
@@ -127,6 +127,55 @@ elif model == "Decision Tree":
     user_model = DecisionTreeClassifier(max_depth = depth)
 
 elif model == "Random Forest":
-    trees = st.sidebar.slider("Number of Trees", 10, 100, 200)
+    trees = st.sidebar.slider("Number of Trees", 10, 200, 100)
     depth = st.sidebar.slider("Max Depth", 1, 20, 5)
     user_model = RandomForestClassifier(n_estimators=trees, max_depth=depth)
+
+# Training the model
+
+if st.button("Train Model"):
+    user_model.fit(X_train, y_train)
+    predictions = user_model.predict(X_test)
+
+    st.subheader("Model Performance")
+
+    # Accuracy
+    acc = accuracy_score(y_test, predictions)
+    st.metric("Accuracy", f"{acc:.2f}")
+
+    # Classification Report
+    st.subheader("Classification Report")
+    st.text(classification_report(y_test, predictions))
+
+    st.subheader("Confusion Matrix")
+    st.text(confusion_matrix(y_test, predictions))
+
+    cm = confusion_matrix(y_test, predictions)
+
+    fig, ax = plt.subplots()
+    sns.heatmap(cm, annot=True, fmt = 'd', ax=ax)
+    ax.set_xlabel("Predicted")
+    ax.set_ylabel("Actual")
+    st.pyplot(fig)
+
+    # ROC Curve
+    if len(np.unique(y)) == 2:
+        st.subheader("ROC Curve")
+        y_probs = user_model.predict_proba(X_test)[:,1]
+        fpr, tpr, _ = roc_curve(y_test, y_probs)
+        roc_auc = auc(fpr,tpr)
+
+        fig2, ax2 = plt.subplots()
+        ax2.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}")
+        ax2.legend()
+        st.pyplot(fig2)
+
+    # Feature Importance
+    if model in ["Decision Tree", "Random Forest"]:
+        st.subheader("Feature Importance")
+        importance = user_model.feature_importances_
+        feat_df = pd.DataFrame({
+            "Feature": X.columns,
+            "Importance": importance
+        }).sort_values(by="Importance", ascending = False)
+        st.dataframe(feat_df)
