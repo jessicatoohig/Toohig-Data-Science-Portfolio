@@ -1,7 +1,7 @@
 # Toohig-Data-Science-Portfolio  
 ## About the Semester Portfolio 📄
 - Will include projects completed throughout my Introduction to Data Science class
-- 3 projects total (1 completed)
+- 4 projects total 
 - Utilizes exploratory and explanatory data analysis, different types of machine learning, and interactivity
 - Displays learning growth and skill enhancement through knowledge gained in and out of class
 ## Purpose 🔍
@@ -40,3 +40,13 @@ The Mutant Moneyball project entails using the tidy data process to clean a data
 
 #### Value of Mutant Moneyball Project to Portfolio 💡
 This project enhances the overall skill displayed in my portfolio by incorpating the tidy data process. Project 1 only included exploratory analysis, as the dataset was already tidy. Furthermore, the untidiness of the Mutant Moneyball dataset shows my ability to notice errors, and exhibits my technical knowledge regarding turning raw-data into something more useful. The tidy data process is the foundation of working with data, as real-world data is almost never perfectly clean. In order to perform the higher level functions, like aggregating data for certain visualizations, cleaning must be done first. This project rounds out my portfolio by emphasizing the critical nature of the tidy data process, and how I will continue to use it in the future. 
+
+### Project 3: Streamlit ML App 🚀
+
+#### Link to the ML App repository 🔗 
+[ML App]() 
+
+#### Description of the ML App Project 📄
+The ML App project is a supervised machince learning web application deployed thorugh Streamlit. It allows users to upload their own datasets, select a target variable for predictions, automatically preprocess data, and choose form four differesnt supervised learning models (Logististic Regressions, KNN, Decision Tree, Random FOrest). Once a model is chosen, the user can adjust hyperprameters thorugh sidebar control to detect trends, patterns, or abnormalities in the data based up various metrics. The app creates an interactive environment for a visual machine learning experience. 
+#### Value of ML App Project to Portfolio ⭐
+ The ML App project displays my skill in creating an interactive, supervised learning platform, from start to finsih. It inporates real-world data, and handning missing values, encoding, and scaling. Additionally, the app dives deeper into my python skills, and understanding inputs and outputs to cmmpare the four supervised machine learning models. The ML app not only displays my coding knowledge, but also my ability to make an interpretable platform for other users. It builds upon Project 1, a more beginner level Streamlit App, and takes my knowledge of vreating visualizations from Project 2 a step further by incorpateing more interactive controls and supervised machine learning models. 
