@@ -36,7 +36,7 @@ st.markdown(
 # Title
 st.title(" 📊 Supervised Machine Learning Project")
 st.subheader("By: Jessica Toohig")
-st.markdown("Upload a dataset, choose a model, tune it, and interactively explore performance within your dataset.")
+st.markdown("Welcome to an interactive supervised learning platform. Use the buttons and sliders below and to the left to upload a dataset, choose a model, tune it, and interactively explore performance within your dataset. The TItanic dataset is preloaded as an example.")
 
 # Create Sidebar Controls for Organization 
 st.sidebar.header("⚙️ Configuration")
@@ -86,6 +86,7 @@ if numeric_df.shape[1] > 0:
     fig_corr, ax_corr = plt.subplots()
     sns.heatmap(numeric_df.corr(), annot = True, cmap = "coolwarm", ax=ax_corr)
     st.pyplot(fig_corr)
+    st.markdown("Through the input of a numeric dataframe, the correlation heatmap provides a visual of the strength and direction of variable pairs within a dataset. The output heatmap is organized through color shading, giving a quick insight into what patterns might be occuring, and moreover, waht variables are best to dive deeper into in the supervised machine learning modeles below. Each cell represents the correlation coefficient; number clsoer to 1 indicate a strong, positive, linear relationship, and numbers clsoer to -1 indicate a strong, negative, linear realtionship. Values near 0 indicate little to no linear relationship.")
 else:
     st.info("No numeric columns are available for a correlation heatmap.")
 
@@ -163,16 +164,101 @@ if st.button("Train Model"):
     user_model.fit(X_train, y_train)
     predictions = user_model.predict(X_test)
 
+    # Model Visualizations
+    st.subheader("Model Visualization")
+
+    # Logistic Regression
+    if model == "Logistic Regression":
+        st.write("Feature Coefficients")
+
+        coef = user_model.coef_[0]
+        coef_df = pd.DataFrame({
+            "Feature": X.columns,
+            "Coefficient": coef
+        }).sort_values(by="Coefficient", key=abs, ascending=False)
+    
+        fig, ax = plt.subplots()
+        sns.barplot(
+            data=coef_df.head(10),
+            x="Coefficient",
+            y="Feature",
+            ax=ax
+        )
+        ax.set_title("Top Feature Coefficients")
+        st.pyplot(fig)
+        st.markdown("The graph displays feature coefficients from the Logisitc Regression Model. The size of the feature coefficients is crucial for logistic regression, as we are performing classification, not predicting a continuous value. In this model, the inputs are the feature variables (X values), and the output is a probability between 0 and 1 that represents the likelihood of belonging to a specific class. This coeficcient plot is helpful for multi-feature datasets, and tells us what features matter most and whether they increase or decrease in probablity by computing a weighted combinaiton of the inputs and passing the results througha sigmoid function. A positive coefcient increases the liklihood of class, and a negative coefficient decreases the liklihood. Feature importance signals what data is driving the prediciton.")
+    
+    # KNN
+    elif model == "KNN":
+        st.write("K vs Accuracy")
+
+        k_values = range(1, 11)
+        acc_scores = []
+
+        for k_val in k_values:
+            knn_temp = KNeighborsClassifier(n_neighbors=k_val)
+            knn_temp.fit(X_train, y_train)
+            preds = knn_temp.predict(X_test)
+            acc_scores.append(accuracy_score(y_test, preds))
+
+        fig, ax = plt.subplots()
+        ax.plot(k_values, acc_scores, marker='o')
+        ax.set_xlabel("K")
+        ax.set_ylabel("Accuracy")
+        ax.set_title("K vs Accuracy")
+        st.pyplot(fig)
+        st.markdown("K-Nearest Neighbors (KNN) is used for classification, and it makes predicitons based on similarity between data points. The inputs are the feature variables (X values), and the output is a predicted class label. Rather than using a matemathical formula, the KNN model interprets training data and looks at the k closest points (neighbors) to a new observations based on Euclidean distance. Classes are assigned based on neighbors. Feature sccaling is important here because KNN works based on distance, so smaller values are moer sensitive to noise, and larger values create more general outputs.")
+    
+    # Decision Tree
+    elif model == "Decision Tree":
+        st.write("Decision Tree Visualization")
+
+        from sklearn.tree import plot_tree
+
+        fig, ax = plt.subplots(figsize=(12, 8))
+        plot_tree(
+            user_model,
+            feature_names=X.columns,
+            filled=True,
+            max_depth=3,  # keeps it readable
+            ax=ax
+        )
+        st.pyplot(fig)
+        st.markdown("Decision tree models classify data by splitting it into smaller groups based on feauture values. Furthermore, the feature values are the inputs (X), and the putput is the predicted class. The model selects the feature that best separates the data at each step, and create a series of decison rules that forms the tree-like estructure. Each internal node represents a decison based on a feature, and eahc branch represents the outcome of that decsion. The ends, or leaf nodes, are the final decsions. THe tree splits until reaching a stopping ocndiotn, such as maximum depth. It is important to remeber that if a tree is too deep, iit can overfit the data.")
+    
+    # Random Forest
+    elif model == "Random Forest":
+        st.write("Feature Importance (Top 10)")
+
+        importance = user_model.feature_importances_
+        feat_df = pd.DataFrame({
+            "Feature": X.columns,
+            "Importance": importance
+        }).sort_values(by="Importance", ascending=False)
+
+        fig, ax = plt.subplots()
+        sns.barplot(
+            data=feat_df.head(10),
+            x="Importance",
+            y="Feature",
+            ax=ax
+        )
+        ax.set_title("Top 10 Important Features")
+        st.pyplot(fig)
+        st.markdown("The graph displays feature importance from the Random Forest Model. This shows which input variables (feature varibles, x), have the greatest influence on the model's predicitons, which is the output of a predicted class label. Suggested by the name, the random forest model biilds multiple decsions trees and analyzes how much each features reduces error/imporves the splits across the trees. The importance scoe is a measue of how much that features helps with accurate predicitons. Higher importance values have a stronger impacts on the final decsion, so the model relies more on them when predicitng the output.")
+    
     # Model Performance 
     st.subheader("Model Performance")
 
     # Accuracy
     acc = accuracy_score(y_test, predictions)
     st.metric("Accuracy", f"{acc:.2f}")
+    st.markdown(" Accuracy is the simplest and most common measure of classification models, measuring the percentage of times that the model is correct. It is calculated by creating a ratio of correctly predicted data points to the total number of data points in the set.")
 
     # Classification Report
     st.subheader("Classification Report")
     st.text(classification_report(y_test, predictions))
+    st. markdown("The classification report shows how well a classification model performs by separating is predicitons into groups of key evalution metrics for each class. The inputs are the predicted labels, and the true labels, and the outputs is a table that displays precision, recall, F1-score, and support for every class. The F1-score, specifically, is when β = 1 and combines both recall and precision. It behaves like an average but is close to the minimum value of the two through the property of the harmonic mean. The harmonic mean is like the average of two numbers, but is always smaller or equal to the average. Furthermore, the F1-score is defined as the harmonic mean between precision and recall, and measures if either are high, and alerts us if one is low. Recall is the proportion of correct predictions with a positive label, or how well the model does with false negatives. Precision is similar, considering only the data points with a true label and measuring how well a model does with false positives. With both metrics, you must define a goal in order to best interpret the results. Lastly, support counts the number of true examples of each class that were present in the test data. ")
 
     # Confusion Matrix
     st.subheader("Confusion Matrix")
@@ -185,6 +271,7 @@ if st.button("Train Model"):
     ax.set_xlabel("Predicted")
     ax.set_ylabel("Actual")
     st.pyplot(fig)
+    st.markdown("The confusion matrix shows how well a classification model's prediciotns relfect true labels by breaking down into four categories. The inputs are the model's predicted classes as well as actual classes from the test set, and teh output is a matrix (typically binary), that counts how many prections fall into each of the four categories. True positives mean the model correctly predicted thepositive class, and true negatives are correct prediciotns of the negative class. On the other hand, false postives are when the model predicts postive but the true label is negative, and false negatives occur when the model prects a negative but the true label is positive. This way, we can see not only the accuracy of the model but also the types of mistakes a model is making. ")
 
     if len(np.unique(y_test)) == 2 and hasattr(user_model, "predict_proba"):
         st.subheader("ROC Curve")
@@ -199,6 +286,7 @@ if st.button("Train Model"):
         ax2.set_ylabel("True Positive Rate")
         ax2.legend()
         st.pyplot(fig2)
+        st.markdown("The ROC Curve evaluates how well a binary classification model seprates positive and negative classes. It examines predicted probabilities, and the inputs are the probability estimates for the positive class (predict_proba) and the true labels form the test set. ")
     else:
         st.info("ROC Curve is available only for binary classification models with probability outputs.")
 
@@ -211,6 +299,4 @@ if st.button("Train Model"):
             "Importance": importance
         }).sort_values(by="Importance", ascending = False)
         st.dataframe(feat_df)
-
-        # selectdtypes for visulizations
-        # show supervised learning visualizatioins
+        st.markdown("The feature importance dataframe explains which input variables have teh strongest influence on a tree-based model's predictions. The inputs are the trained model as well as the feature matrix used during training. The model assigns each feature a mumerical values through the feature_importances_ attribute, which represents the feature's contributions to reducing ipurity in the tree-splitting process. The output is a DataFrame that is sorted from most to least important feature, which giver further insight into the decision-making behavior.")
