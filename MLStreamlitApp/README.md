@@ -26,7 +26,7 @@ uv sync
 ```bash
 $ streamlit run MLStreamlitApp.py
 ```
-### Required Libraries 
+### Required Libraries 📦
 **Core libraries:**
 - streamlit (1.32+)
 - pandas (2.0+)
@@ -36,9 +36,10 @@ $ streamlit run MLStreamlitApp.py
 - scikit-learn (1.3+)
 
 **Link to the deployed version in Streamlit Cloud**
-XXX
 
-## App Features
+[Streamlit Cloud](https://share.streamlit.io/?utm_source=streamlit&utm_medium=referral&utm_campaign=main&utm_content=-ss-streamlit-io-cloudpagehero)
+
+## App Features 👉
 **The app includes four supervised learning models:** 
 
 **1. Logistic Regression**
@@ -87,6 +88,6 @@ All graphs below are derived from the Titanic Dataset.
 
 <img src="Pictures/Top 10 Important Features.png" width="600">
 
-## References 
+## References 📂
 [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 [Tidy Data Cheat Sheet](https://vita.had.co.nz/papers/tidy-data.pdf)
