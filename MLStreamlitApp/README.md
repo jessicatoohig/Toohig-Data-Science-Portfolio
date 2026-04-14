@@ -1,6 +1,6 @@
 # Project 3: ML Streamlit App
 ## Project Overview 📌
-The ML Streamlit App is an interactive Supervised Machine Learning Web App built with Streamlit. The goal of this project is to allow users to have freedom in exploring, training, and visualizing learning models with a dataset of their choice. While the Titanic dataset is uploaded as an example, users have discretion to upload their own dataset, select a target column for prediction, choose from four machine-learning models, and tune hyperparameters. Through model training, performance metrics are available with explanations. 
+The ML Streamlit App is an interactive supervised machine learning web app built with Streamlit. The goal of this project is to allow users to have freedom in exploring, training, and visualizing learning models with a dataset of their choice. While the Titanic Dataset is uploaded as an example, users have discretion to upload their own dataset, select a target column for prediction, choose from four machine-learning models, and tune hyperparameters. Through model training, performance metrics are available with explanations. 
 
 ## How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
