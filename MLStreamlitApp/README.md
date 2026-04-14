@@ -40,18 +40,22 @@ XXX
 
 ## App Features
 **The app includes four supervised learning models:** 
+
 **1. Logistic Regression**
 - Used for binary classification
 - Hyperparameter: C
 - Visualization: Top feature coefficients
+
 **2. K-Nearest Neighbors (KNN)**
 - Distance-based classifier
 - Hyperparameter: k (# of neighbors)
 - Visualization: K vs. Accuracy curve
+
 **3. Decision Tree**
 - Rule-based model that splits data into branches
 - Hyperparameter: max_depth
 - Visualization: Tree diagram
+
 **4. Random Forest**
 - Combination of multiple decison trees
 - Hyperparameters: n_estimators (# of trees), max_depth
