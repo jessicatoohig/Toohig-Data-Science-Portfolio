@@ -11,7 +11,10 @@ I plan to organize my portfolio by creating folders for each project. Within eac
 ## Project Table of Contents 🔗
 [Project 1](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/basic_streamlit_app)
 
-[Project 2](https://github.com/jessicatoohig/TidyData-Project) 
+[Project 2](https://github.com/jessicatoohig/TidyData-Project)
+
+[Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app)
+
 ### Project 1: Palmer's Penguins ❄️🐧
 - Located in the basic_streamlit_app folder
 #### How to Run the App on Your Machine ⚙️
@@ -41,10 +44,10 @@ The Mutant Moneyball project entails using the tidy data process to clean a data
 #### Value of Mutant Moneyball Project to Portfolio 💡
 This project enhances the overall skill displayed in my portfolio by incorpating the tidy data process. Project 1 only included exploratory analysis, as the dataset was already tidy. Furthermore, the untidiness of the Mutant Moneyball dataset shows my ability to notice errors, and exhibits my technical knowledge regarding turning raw data into something more useful. The tidy data process is the foundation of working with data, as real-world data is almost never perfectly clean. In order to perform the higher level functions, like aggregating data for certain visualizations, cleaning must be done first. This project rounds out my portfolio by emphasizing the critical nature of the tidy data process, and how I will continue to use it in the future. 
 
-### Project 3: Streamlit ML App 🚀
+### Project 3: Streamlit ML App 🚀🤖
 
 #### Link to the ML App repository 🔗 
-[ML App](XX) 
+[ML App](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app) 
 
 #### Description of the ML App Project 📄
 The ML App project is a supervised machine learning web application deployed through Streamlit. It allows users to upload their own datasets, select a target variable for predictions, automatically preprocess data, and choose from four different supervised learning models (Logistic Regression, KNN, Decision Tree, Random Forest). Once a model is chosen, the user can adjust hyperparameters thorugh sidebar control to detect trends, patterns, or abnormalities in the data based on various metrics. The app creates an interactive environment for a visual machine learning experience. 

@@ -5,32 +5,35 @@ The ML Streamlit App is an interactive Supervised Machine Learning Web App built
 ## How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
 ```bash
-$ git clone https://github.com/Toohig-Data-Science-Portfolio/MLStreamlitApp
-cd ML Streamlit App
+$ git clone https://github.com/Toohig-Data-Science-Portfolio/MLStreamlitApp.git
+cd MLStreamlitApp
 ```
-**2. Start a virtual environment and get the dependencies (requires uv):**
+**2. Start a virtual environment (using uv) and install libraries:**
 ```bash
-$ uv venv
-$ .venv/bin/activate
-$ uv sync
+pip install uv
+uv venv
+
+# Activate environment
+# Mac/Linux:
+source .venv/bin/activate
+
+# Windows:
+.venv\Scripts\activate
+
+uv sync
 ```
 **3. Start the app locally**
 ```bash
 $ streamlit run MLStreamlitApp.py
 ```
-### Necessary Libraries and Machines 
+### Required Libraries 
 **Core libraries:**
 - streamlit (1.32+)
 - pandas (2.0+)
 - numpy (1.24+)
 - matplotlib (3.7+)
 - seaborn (0.13+)
--scikit-learn (1.3+)
-
-**Install these libraries:**
-```bash
-pip install -r requirements.txt
-```
+- scikit-learn (1.3+)
 
 **Link to the deployed version in Streamlit Cloud**
 XXX
