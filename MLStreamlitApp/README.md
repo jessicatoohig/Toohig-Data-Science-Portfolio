@@ -37,7 +37,7 @@ $ streamlit run MLStreamlitApp.py
 
 **Link to the deployed version in Streamlit Cloud**
 
-[Streamlit Cloud](https://share.streamlit.io/?utm_source=streamlit&utm_medium=referral&utm_campaign=main&utm_content=-ss-streamlit-io-cloudpagehero)
+[Streamlit Cloud](https://readmemdproject-3-ml-app-app-fsgggpyub7n4eicuqqmtwa.streamlit.app/)
 
 ## App Features 👉
 **The app includes four supervised learning models:** 
