@@ -68,18 +68,23 @@ The hyperparameters for each model are updated upon model selection, and include
 All graphs below are derived from the Titanic Dataset. 
 
 **Correlation Heatmap**
+
 <img src="Pictures/Heatmap.png" width="600">
 
 **Logistic Regression**
+
 <img src="Pictures/Top Feature Coefficients.png" width="600">
 
 **K-Nearest Neighbors**
+
 <img src="Pictures/K vs Accuracy.png" width="600">
 
 **Decision Tree**
+
 <img src="Pictures/Decision Tree.png" width="600">
 
 **Random Forest**
+
 <img src="Pictures/Top 10 Important Features.png" width="600">
 
 ## References 
