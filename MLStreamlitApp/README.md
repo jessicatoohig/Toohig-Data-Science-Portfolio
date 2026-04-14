@@ -1,6 +1,6 @@
 # Project 3: ML Streamlit App
 ## Project Overview 📌
-The ML Streamlit App is an intereactive Supervised MAchine Learning Web App built with Streamlit. The goal of this project is to allow users to have freedom in explorings, training, and visualizing learning models with a dataset of thier coice. While the Titanic dataset is uploaded as an example, users have discretion to upload thier own dataset, select a target column for prediction, choose from four machine-learning omdels,, and tune hyperpramerters. THrough model training, performance metrics are available with explanations. 
+The ML Streamlit App is an interactive Supervised Machine Learning Web App built with Streamlit. The goal of this project is to allow users to have freedom in exploring, training, and visualizing learning models with a dataset of their choice. While the Titanic dataset is uploaded as an example, users have discretion to upload their own dataset, select a target column for prediction, choose from four machine-learning models, and tune hyperparameters. Through model training, performance metrics are available with explanations. 
 
 ## How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
@@ -40,22 +40,22 @@ XXX
 1. Logistic Regression
 - Used for binary classification
 - Hyperparameter: C
-- Visualization: Top feature coeffcients
+- Visualization: Top feature coefficients
 2. K-Nearest Neighbors (KNN)
 - Distance-based classifier
 - Hyperparameter: k (# of neighbors)
 - Visualization: K vs. Accuracy curve
-3. Decsion Tree 
-- Rule-based model that spilts data into branches
+3. Decision Tree 
+- Rule-based model that splits data into branches
 - Hyperparameter: max_depth
-- Visualizatoin: Tree diagram
+- Visualization: Tree diagram
 4. Random Forest
 - Combination of multiple decison trees
 - Hyperparameters: n_estimators (# of trees), max_depth
-- VisualizationL Top 10 feature importances 
+- Visualization: Top 10 feature importances 
 
 **Hyperparameter Tuning:**
-The hyperprameters for each model are updated upon model selction, and indluded in the left sidebar.The sliders can be adjusted, and the model will update automatically. There is no need for manual retraining. 
+The hyperparameters for each model are updated upon model selection, and included in the left sidebar. The sliders can be adjusted, and the model will update automatically. There is no need for manual retraining. 
 
 ## Graphs and Interactions Involved 📊
 All graphs below are derived from the Titanic Dataset. 
@@ -69,7 +69,7 @@ All graphs below are derived from the Titanic Dataset.
 <img src="Pictures/K vs Accuracy.png" width="600">
 
 **Decision Tree**
-<img src="Pictures/Decison Tree.png" width="600">
+<img src="Pictures/Decision Tree.png" width="600">
 
 **Random Forest**
 <img src="Pictures/Top 10 Important Features.png" width="600">
