@@ -6,9 +6,9 @@
 # --------------------------------------------------------------------------------------------------------
 # IMPORT REQUIRED LIBRARIES
 # --------------------------------------------------------------------------------------------------------
-import streamlit as st                  # Creates the streamlit wep app interface
+import streamlit as st                  # Creates the streamlit web app interface
 import pandas as pd                     # Used for reading / analyzing data
-import matplotlib.pyplot as plt         # Used for cusotm charts / visualizations 
+import matplotlib.pyplot as plt         # Used for custom charts / visualizations 
 
 # --------------------------------------------------------------------------------------------------------
 # APP TITLE AND INTRODUCTION
@@ -35,7 +35,7 @@ st.dataframe(df)                                      # Output: creates a pandas
 st.subheader("Filter by an Island")
 # Creating a Select Box
 island = st.selectbox("Select an island", df["island"].unique(), index = None)
-    # Input: user selects one island form the dropdown menu, options are taken from the names in the dataset
+    # Input: user selects one island from the dropdown menu, options are taken from the names in the dataset
     # Output: user can select "Biscoe", "Dream", or "Torgersen"
 
 # --------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ island = st.selectbox("Select an island", df["island"].unique(), index = None)
 # --------------------------------------------------------------------------------------------------------
 # If the user clicks the button:
 if st.button("Click me!"):
-    # Filter rows where the isalnd matches user choice
+    # Filter rows where the island matches user choice
     filtered_df = df[df["island"] == island]
     # Output: text and the filters table
     st.write(f"Penguins found on {island}.")
@@ -55,11 +55,11 @@ else:
 # --------------------------------------------------------------------------------------------------------
 # ADDING BAR CHARTS
 # --------------------------------------------------------------------------------------------------------
-# Filter the data using the slected island
+# Filter the data using the selected island
 filtered_df = df[df["island"] == island]
 # Chart 1: counts the number of penguins by species 
 st.bar_chart(filtered_df["species"].value_counts(), x_label= "Species", y_label = "# of Penguins")
-    # Output: a bar chart showing species totals on the seclected island
+    # Output: a bar chart showing species totals on the selected island
 
 # Chart 2: counts the number of penguins by sex
 st.bar_chart(filtered_df["sex"].value_counts(), x_label= "Sex", y_label = "# of Penguins")
@@ -73,10 +73,10 @@ st.write("Male and female penguins are evenly distributed across all three islan
 # --------------------------------------------------------------------------------------------------------
 st.subheader("Filter by a Species")
 
-# Input: user slects a species from a drop down menu
+# Input: user selects a species from a drop down menu
 species = st.selectbox("Select a species", df["species"].unique())          # Creates a selectbox 
 filtered_df2 = df[df["species"] == species]                                 # Filters rows for the selected species 
-# Output: a DataFrame with only the selcted species
+# Output: a DataFrame with only the selected species
 
 # --------------------------------------------------------------------------------------------------------
 # ADDING A BOXPLOT 
@@ -90,7 +90,7 @@ measurement = st.selectbox("Choose a measurement",["bill_length_mm", "bill_depth
 # Create matplotlib figure and axis
 fig, ax = plt.subplots()
 
-# Boxplot: shows the spread of the selcted measurement grouped by year 
+# Boxplot: shows the spread of the selected measurement grouped by year 
 filtered_df2.boxplot(column=measurement, by="year", ax=ax)
 
 # Axis labels
@@ -103,9 +103,9 @@ ax.set_title(f"{measurement.replace('_', ' ').title()} by Year")
 # Output: a boxplot displayed in Streamlit 
 st.pyplot(fig)
 
-# Key Takeaways and interprestation paragraphs of eaach box plot option
+# Key Takeaways and interpretation paragraphs of each box plot option
 st.subheader("Key Takeaways from Average Species Metrics") # Title
-# Adelie speices description 
+# Adelie species description 
 st.markdown("**Adelie:** Bill length is steady throughout the years, with the most variety in 2008. Bill depth decreases slightly, whereas flipper length increases. Body mass is also relatively steady.")
 # Gentoo species description
 st.markdown("**Gentoo:** Bill length decreases then increases. Bill depth increases, and also grows in range. Flipper length has an initial increase, then decreases. Body mass is steady.")
@@ -120,7 +120,7 @@ st.subheader("Correlation Between Measurements")
 # Selecting only the numeric measurement columns
 corr = filtered_df2[["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]].corr()
 
-# Compute the correlation matirx and create the heatmap figure
+# Compute the correlation matrix and create the heatmap figure
 fig, ax = plt.subplots()
 im = ax.imshow(corr)
 
@@ -131,18 +131,18 @@ ax.set_yticks(range(len(corr.columns)))
 ax.set_xticklabels(corr.columns, rotation=45)
 ax.set_yticklabels(corr.columns)
 
-# Add a color scaler bar
+# Add a color scale bar
 fig.colorbar(im)
 
 # Display the chart 
 st.pyplot(fig)
-    # Output:  Table of raltionships between variables 
+    # Output:  Table of relationships between variables 
         # values near: 
             # 1: strong positive correlation 
             # 0: no correlation
             # -1: strong negative correlation 
 
-# Key takeawy and descrition of the correlation heatmap 
+# Key takeaway and description of the correlation heatmap 
 st.write("Above is a correlation map based on the variables visualized in the boxplots.")
 
 # --------------------------------------------------------------------------------------------------------
