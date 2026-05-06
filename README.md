@@ -11,7 +11,7 @@ I plan to organize my portfolio by creating folders for each project. Within eac
 ## Project Table of Contents 🔗
 [Project 1](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/basic_streamlit_app)
 
-[Project 2]([https://github.com/jessicatoohig/TidyData-Project](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project)
+[Project 2](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project)
 
 [Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app)
 
