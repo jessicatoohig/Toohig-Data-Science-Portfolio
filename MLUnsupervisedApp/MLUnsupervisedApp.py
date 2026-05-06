@@ -97,21 +97,21 @@ with st.sidebar.expander("What do these parameters mean?"):
                 
                 **Features**
                 The columns are used as inputs for clustering. 
-                Clustering results change significantly depedning on which features you include.
+                Clustering results change significantly depending on which features you include.
 
                 **PCA Components**
                 Number of principal components to compute.
                 PCA reduces high-dimensional data into fewer dimensions.
-                *Note:* The visualization always usees PC1 and PC2.
+                *Note:* The visualization always uses PC1 and PC2.
 
                 **Number of Clusters (K)**
                 Controls how many groups K-means will try to find in the data.
                 Higher K = more, smaller clusters
-                Lower K - fewer, broader clusters
+                Lower K = fewer, broader clusters
 
                 **Linkage Method (Hierarchical Clustering)**
-                Determines how distancces between clusters are calculated:
-                - **Ward:** minimizes variance 9most common)
+                Determines how distances between clusters are calculated:
+                - **Ward:** minimizes variance (most common)
                 - **Single:** based on closest points (can chain)
                 - **Complete:** based on farthest points (compact clusters)
                 - **Average:** uses average distance between clusters
@@ -349,7 +349,7 @@ with tab3:
     - X-axis: number of clusters (K)
     - Y-axis: inertia (within-cluster distance)
              
-    Inertia measurs how tightly groups the data points are within each cluster.
+    Inertia measures how tightly groups the data points are within each cluster.
     Lower values indicate better clustering. 
              
     The "elbow point" is where the rate of improvement simply decreases.
