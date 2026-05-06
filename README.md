@@ -8,12 +8,14 @@
 The purpose of my Data Science Portfolio is to have a central location to display my projects. Whether for personal research or future career recruitment, a local portfolio to see not only my projects but their code and programming process will give a detailed exhibition of my knowledge, interests, and skills. More of my personality will be displayed in my projects and problem-solving processes. It acts as a live resume for the complexities behind my code, data cleansing skills, and past and recent activity progression. The timeline of projects posted will show my growth and learning achievements, further allowing myself to stand out in the professional field. 
 ## Organization 🗂️
 I plan to organize my portfolio by creating folders for each project. Within each project folder, there will be associated folders where more grouping is necessary (visualizations, EDA, models, code), and other relevant files used in each project. 
-## Project Table of Contents 🔗
-[Project 1](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/basic_streamlit_app)
+## At a Glance: Project Table of Contents 🔗
+[Project 1](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/basic_streamlit_app): Exploratory Data Analysis
 
-[Project 2](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project)
+[Project 2](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project): The Tidy Data Process
 
-[Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app)
+[Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app): Supervised Machine Learning Models
+
+[Final Project](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLUnsupervisedApp): Unsupervised Machine Learning Models
 
 ### Project 1: Palmer's Penguins ❄️🐧
 - Located in the basic_streamlit_app folder
@@ -57,7 +59,7 @@ The ML App Project is a supervised machine learning web application deployed thr
 ### Project 4: Streamlit Unsupervised ML App 🧮💻
 
 #### Link to the Unsupervised ML App 🔗 
-[Unsupervised ML App]() 
+[Unsupervised ML App](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLUnsupervisedApp) 
 
 #### Description of the ML App Project 📖
 The Unsupervised ML App Project is an unsupervised machine learning web application deployed through Streamlit. It allows users to upload their own datasets, select features for interpretation, automatically preprocesses data, and then offers interactivity to discern how clustering behaves under different conditions. The goal is to provide a hands-on environment where users, whether beginners or experienced analysts, can learn how unsupervised models respond to different preprocessing steps, feature selections, and algorithmic choices. It is a platform for understanding the “why” behind clustering outcomes
