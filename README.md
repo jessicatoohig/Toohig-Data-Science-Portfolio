@@ -11,7 +11,7 @@ I plan to organize my portfolio by creating folders for each project. Within eac
 ## Project Table of Contents 🔗
 [Project 1](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/basic_streamlit_app)
 
-[Project 2](https://github.com/jessicatoohig/TidyData-Project)
+[Project 2](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project)
 
 [Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app)
 
@@ -35,8 +35,8 @@ $ streamlit run basic_streamlit_app/main.py
 ### Project 2: Mutant Moneyball 🛡️🦸
 - Located in its own repository (linked below) and the TidyData-Project folder
 
-#### Link to the Tidy Data Project repository 🔗 
-[Tidy Data Project](https://github.com/jessicatoohig/TidyData-Project/blob/main/README.md) 
+#### Link to the Tidy Data Project 🔗 
+[Tidy Data Project](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/TidyData-Project) 
 
 #### Description of the Mutant Moneyball Project 📝
 The Mutant Moneyball project entails using the tidy data process to clean a dataset in order for transformation and analysis. The tidy data principles are used to ensure data structure, readability, and that the proper tools and aggregations can be applied. Furthermore, after the tidy data process, different visualizations display key trends within the dataset, especially regarding patterns of value over time. 
