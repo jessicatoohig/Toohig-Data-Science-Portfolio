@@ -1,4 +1,4 @@
-## Project 4: MLUnsupervised Streamlit App
+# Project 4: MLUnsupervised Streamlit App 📊
 ## Project Overview ▶️
 The Unsupervised ML Streamlit App is an interactive unsupervised machine learning web app built with Streamlit. Similar to Project 3 except deploying unsupervised learning models, the goal of this project is to allow users freedom and creativity in exploring, training, and visualizing unsupervised learning models with a dataset of their choice. The Titanic Dataset is uploaded as an example, but users can also upload a dataset in the form of a CSV file of their choosing. They can then select features for analysis, and adjust model hyperparameters. The app provides visualizations and performance metrics to help users understand how clustering behaves under different conditions. 
 
