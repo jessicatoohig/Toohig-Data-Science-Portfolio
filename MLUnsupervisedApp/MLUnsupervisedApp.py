@@ -7,11 +7,12 @@
 # - ML
 # - Hierarchical clustering 
 
-import streamlit as st                      # builds the web app interface
-import pandas as pd                         # handles tabular data
-import numpy as np                          # numerical operations
-import plotly.express as px                 # interactive visualizations
-import plotly.figure_factory as ff          # advanced plots like dendrograms
+import streamlit as st                      # Builds the web app interface
+import pandas as pd                         # Handles tabular data
+import numpy as np                          # Numerical operations
+import plotly.express as px                 # Interactive visualizations
+import plotly.figure_factory as ff          # Advanced plots like dendrograms
+import scipy.cluster.hierarchy as sch       # Imports hierarchical clustering 
 
 # Machine learning tools
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -78,7 +79,7 @@ st.write("""
 # Input: none (functions fetches dataset from URL)
 # Output: pandas DataFrame
 
-@st.cache_data              # speeds up app by caching dataset
+@st.cache_data              # Speeds up app by caching dataset
 def load_titanic():
     url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
     return pd.read_csv(url)
@@ -87,40 +88,46 @@ def load_titanic():
 # CREATE A SIDEBAR: USER INPUTS
 # --------------------------------------------------------------------------------------------------------
 # The sidebar is where the user interacts with the app
-
 st.sidebar.header("Settings")
 
+# Create an expander that illustrates the interactive metrics in the sidebar 
 with st.sidebar.expander("What do these parameters mean?"):
     st.markdown("""
-                **Choose Dataset**
+                **Choose Dataset:**
                 Select whether to use the built-in Titanic dataset or upload your own CSV file.
                 
-                **Features**
+                **Features:**
                 The columns are used as inputs for clustering. 
                 Clustering results change significantly depending on which features you include.
 
-                **PCA Components**
+                **PCA Components:**
                 Number of principal components to compute.
                 PCA reduces high-dimensional data into fewer dimensions.
                 *Note:* The visualization always uses PC1 and PC2.
 
-                **Number of Clusters (K)**
+                **Number of Clusters (K):**
                 Controls how many groups K-means will try to find in the data.
                 Higher K = more, smaller clusters
                 Lower K = fewer, broader clusters
 
-                **Linkage Method (Hierarchical Clustering)**
+                **Linkage Method (Hierarchical Clustering):**
                 Determines how distances between clusters are calculated:
                 - **Ward:** minimizes variance (most common)
                 - **Single:** based on closest points (can chain)
                 - **Complete:** based on farthest points (compact clusters)
                 - **Average:** uses average distance between clusters
+
+                **Explained Variance:**
+                - Ratio of (variance captured by the specific principal component / Total variance in the dataset)
+                - Tells you how much information each component keeps
+                - You can choose the smallest number of components that explain the highest percentage of variance
                 """)
 
+# Button that reloads the entire site 
 if st.sidebar.button("🔄 Refresh App"):
     st.rerun()
 
-# User chooses a dataset source
+# User chooses a dataset source, either the Titanic dataset or uploads thier own
 dataset_choice = st.sidebar.radio(
     "Choose Dataset",
     ["Titanic Sample Dataset", "Upload Your Own CSV"]
@@ -178,15 +185,17 @@ n_components = st.sidebar.slider(
     value = 2
 )
 
+
+# Ensure valid input of parameters
 if n_components < 2:
     st.error("PCA requires at least 2 components")
     st.stop()
 
-# Ensure valid input
 if len(features) < 2:
     st.warning("Please select at least 2 features.")
     st.stop()
 
+# Explain why n_components only changes explained variance
 st.sidebar.info("PCA visualization uses only the first two components. Increasing n_components affects explained variance but does not change the 2D plot.")
 
 # Input: number of clusters (k), k controls how many groups the algorithm will try to find in the data
@@ -245,6 +254,8 @@ X_pca = pca.fit_transform(X_scaled)
 
 explained_var = pca.explained_variance_ratio_
 
+# Explained variance ratio
+# Ratio: Variance captured by the specific principal component / Total variance in the dataset
 st.sidebar.write("Explained Variance:", np.round(explained_var, 3))
 
 
@@ -409,7 +420,7 @@ with tab4:
     sample_data = X_scaled[:sample_size]
 
     # Output: dendrogram (tree diagram)
-    import scipy.cluster.hierarchy as sch
+    import scipy.cluster.hierarchy as sch       
 
     fig3 = ff.create_dendrogram(sample_data,
     linkagefun=lambda x: sch.linkage(x, method=linkage_method)
