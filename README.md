@@ -59,7 +59,7 @@ The ML App Project is a supervised machine learning web application deployed thr
 ### Project 4: Streamlit Unsupervised ML App 🧮💻
 
 #### Link to the Unsupervised ML App 🔗 
-[Unsupervised ML App]() 
+[Unsupervised ML App](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLUnsupervisedApp) 
 
 #### Description of the ML App Project 📖
 The Unsupervised ML App Project is an unsupervised machine learning web application deployed through Streamlit. It allows users to upload their own datasets, select features for interpretation, automatically preprocesses data, and then offers interactivity to discern how clustering behaves under different conditions. The goal is to provide a hands-on environment where users, whether beginners or experienced analysts, can learn how unsupervised models respond to different preprocessing steps, feature selections, and algorithmic choices. It is a platform for understanding the “why” behind clustering outcomes
