@@ -37,7 +37,7 @@ $ streamlit run MLUnsupervisedApp.py
 
 **Link to the deployed version in Streamlit Cloud**
 
-[Streamlit Cloud]()
+[Streamlit Cloud](https://toohig-data-science-portfolio-cndqowgdh8zxfmds2mbk5m.streamlit.app/)
 
 
 ## App Features ⭐
