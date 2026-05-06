@@ -15,6 +15,8 @@ I plan to organize my portfolio by creating folders for each project. Within eac
 
 [Project 3](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLStreamlitApp#project-3-ml-streamlit-app)
 
+[Final Project](https://github.com/jessicatoohig/Toohig-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)
+
 ### Project 1: Palmer's Penguins ❄️🐧
 - Located in the basic_streamlit_app folder
 #### How to Run the App on Your Machine ⚙️
