@@ -1,6 +1,6 @@
-# # Project 4: MLUnsupervised Streamlit App
+## Project 4: MLUnsupervised Streamlit App
 ## Project Overview ▶️
-The Unsuperived ML Streamlit App is an interactive unsupervised machine learning web app built with Streamlit. SImilar to Poroject 3 except deploying unsuperivised learning models, the goal is to of this project is to allow users freedom and creativity in exploring, training, and visualizing unsuperivised learning models with a dataset of their choice. The Titanic Dataset is uploaded as an example, but users can also upload a dataset in the form od a csv file of their choosing. They can then select featuers for analysis, and adjusst model hyperparameters. The app provides visualizaitons and performance metrics to help users underestnad how clustering behaves under differnt conditons. 
+The Unsupervised ML Streamlit App is an interactive unsupervised machine learning web app built with Streamlit. Similar to Project 3 except deploying unsupervised learning models, the goal of this project is to allow users freedom and creativity in exploring, training, and visualizing unsupervised learning models with a dataset of their choice. The Titanic Dataset is uploaded as an example, but users can also upload a dataset in the form of a CSV file of their choosing. They can then select features for analysis, and adjust model hyperparameters. The app provides visualizations and performance metrics to help users understand how clustering behaves under different conditions. 
 
 ## How to Run the App on Your Machine 🧩
 **1. Clone the repository** 
@@ -41,20 +41,20 @@ $ streamlit run MLUnsupervisedApp.py
 
 
 ## App Features ⭐
-**The app includes mulitple unsupervised learning models:** 
+**The app includes multiple unsupervised learning models:** 
 
 **1. K-Means Clustering**
 - Groups data into K clusters based on similarity
-- Hyperparameter: K (numer of clsuters)
+- Hyperparameter: K (number of clusters)
 - Visualization: PCA cluster scatter plot
-        - Reducues high-dimensional data into 2D for visualizaiton
-        - Helps visualize how clusers are separated
+        - Reduces high-dimensional data into 2D for visualization
+        - Helps visualize how clusters are separated
 
 **2. Elbow Plot**
 - Used to determine optimal number of clusters (K)
 - Plots inertia vs. number of clusters
 - Helps identify the "elbow point" where improvement slows
-- Supports better hyperparameter selction for K-means
+- Supports better hyperparameter selection for K-means
 
 **3. Hierarchical Clustering**
 - Builds a tree-like structure of clusters (dendrogram)
@@ -68,6 +68,14 @@ The primary hyperparameter is the number of clusters (K), which can be adjusted 
 ## Graphs and Interactions Involved 📊
 All graphs below are derived from the Titanic Dataset. 
 
+**KMeans Results**
+<img src="Images/Scatter.png" width="600">
+
+**Elbow Plot**
+<img src="Images/Elbow.png" width="600">
+
+**Dendrogram**
+<img src="Images/Dendrogram.png" width="600">
 
 ## References 📂
 [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
