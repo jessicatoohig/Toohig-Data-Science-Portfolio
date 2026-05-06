@@ -142,6 +142,13 @@ features = st.sidebar.multiselect(
     default=numeric_cols[:4]
 )
 
+n_components = st.sidebar.slider(
+    "PCA Components",
+    min_value = 2,
+    max_value = 5,
+    value = 2
+)
+
 # Ensure valid input
 if len(features) < 2:
     st.warning("Please select at least 2 features.")
@@ -149,7 +156,11 @@ if len(features) < 2:
 
 # Input: number of clusters (k), k controls how many groups the algorithm will try to find in the data
 k = st.sidebar.slider("Number of Clusers", 2, 10, 3)
-# Make sure to explain this
+
+linkage_method = st.sidebar.selectbox(
+    "Linkage method (Hierarchihcal Clustering)",
+    ["ward", "single", "complete", "average"]
+)
 
 # --------------------------------------------------------------------------------------------------------
 # MODEL PREP
@@ -178,7 +189,7 @@ kmeans = KMeans(n_clusters=k,                   # number of clusters
 clusters = kmeans.fit_predict(X_scaled)
 
 # Add cluster labels back to the orginal dataset
-df["Cluster"] = clusters
+df_clean["Cluster"] = clusters
 
 # Silhouette Score: 
 # Measures how well separated clusters are
@@ -191,7 +202,7 @@ score = silhouette_score(X_scaled, clusters)
 # Input: scaled data
 # Output: 2D representation of high-dimensional data
 
-pca = PCA(n_components = 2)
+pca = PCA(n_components = n_components)
 X_pca = pca.fit_transform(X_scaled)
 
 # Create a DataFrame for plotting
@@ -355,7 +366,7 @@ with tab4:
     sample_data = X_scaled[:sample_size]
 
     # Linkage computes hierarchical clustering
-    Z = linkage(sample_data, method = "ward")
+    Z = linkage(sample_data, method = linkage_method)
 
     # Output: dendrogram (tree diagram)
     fig3 = ff.create_dendrogram(sample_data)
