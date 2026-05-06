@@ -51,7 +51,48 @@ st.markdown("Welcome to an interactive supervised learning platform. Use the but
 # --------------------------------------------------------------------------------------------------------
 # Users can use this sidebar to configure a dataset and model its settings
 st.sidebar.header("⚙️ Configuration")
+with st.sidebar.expander( "what do these settings mean?"):
+    st.markdown("""
+    **Data Selection**
+    Choose whether to use the preloaded Titanic dataset or upload your own CSV file. 
+    Your dataset must include a target column for prediction.
 
+    **Test Size**
+    Controls what percentage of the data is used for testing. 
+    - Smaller test size: more training data
+    - Larger test size: stronger evaluation but less training data       
+
+    **Apply Feature Scaling**
+    Stadardizes numeric features so they have mean 0 and variance 1. 
+    Important for distance-based models like KNN and models sensistive to feature magnitude.
+    
+    **Model Selection**
+     Choose which supervised learning algorithm to train:  
+    - **Logistic Regression:** linear, interpretable, great baseline  
+    - **KNN:** distance‑based, simple, sensitive to scaling  
+    - **Decision Tree:** rule‑based, interpretable, can overfit  
+    - **Random Forest:** ensemble of trees, strong performance  
+
+    **Hyperparameters**  
+    These sliders adjust how the model behaves:  
+
+    - **Regularization (C)** *(Logistic Regression)*  
+      Controls model flexibility.  
+      Smaller C = stronger regularization (simpler model).  
+
+    - **K (KNN)**  
+      Number of neighbors used for classification.  
+      Small K = more flexible, can overfit.  
+      Large K = smoother, can underfit.  
+
+    - **Max Depth (Decision Tree / Random Forest)**  
+      Limits how deep the tree can grow.  
+      Deeper trees capture more detail but may overfit.  
+
+    - **Number of Trees (Random Forest)**  
+      More trees generally improve performance but increase computation time.  
+    """)
+                
 # --------------------------------------------------------------------------------------------------------
 # DATASET SELECTION
 # --------------------------------------------------------------------------------------------------------
